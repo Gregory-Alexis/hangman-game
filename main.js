@@ -13,7 +13,7 @@ const n = randomInt(0, word.length)
 let secret = ('_').repeat(word[n].length).split('') // affiche _,_,_,_, à la place du mot secret
 let attemps = 7 // nombre d'essaie
 let secretWord = word[n].split('')
-let hang = 0 // variable permettant d'afficher le dessin du hangMan
+let hang = 0 // variable permettant d'afficher le dessin du hangMan selon son index
 
 // Game start
 
