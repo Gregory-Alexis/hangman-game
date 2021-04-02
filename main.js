@@ -35,7 +35,7 @@ while (true) {
     console.log(chalk.green('You already find this character'))
     continue
   } else if (userInput.length > 1) {
-    console.log('Only letter required')
+    console.log(chalk.red('Only letter required'))
     continue
   } else {
     console.log(chalk.red(`Nop, ${attemps - 1} attemps remaining`))
@@ -46,7 +46,7 @@ while (true) {
 
   // fin de partie si atteind
   if (attemps === 0) {
-    console.log(chalk.red('Sorry you loose, you will be better next time'))
+    console.log(chalk.red('Sorry you loose, you will do better next time'))
     break
   }
 }
