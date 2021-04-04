@@ -22,7 +22,7 @@ while (true) {
 
   // boucle permettant au jeu de comprendre que la lettre entrée par l'user soit toujours en minuscule
   for (let i = 0; i < secret.length; i++) {
-    if (userInput.toLowerCase() === secretWord[i] || userInput.toUpperCase === secretWord[i]) {
+    if (userInput.toLowerCase() === secretWord[i] || userInput.toUpperCase() === secretWord[i]) {
       secret[i] = userInput
     }
   }
