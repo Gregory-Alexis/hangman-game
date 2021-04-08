@@ -4,10 +4,11 @@ const { randomInt } = require('crypto')
 const chalk = require('chalk')
 let { HANGMAN } = require('./hangman')
 
+
 // lecture du fichier contenant les mots
 let word = fs.readFileSync('./dico.txt', 'utf-8').split('\n')
 
-// variablie permettant de choisir un mot du dico au hasard
+// variable permettant de choisir un mot du dico au hasard
 const n = randomInt(0, word.length)
 
 let secret = ('_').repeat(word[n].length).split('') // affiche _,_,_,_, à la place du mot secret
@@ -17,6 +18,7 @@ let hang = 0 // variable permettant d'afficher le dessin du hangMan selon son in
 
 // Game start
 
+try { // on lance le programme et si erreur on renvoi l'erreur au user
 while (true) {
   let userInput = readlineSync.question(`Find the secret word:`)
 
@@ -29,7 +31,7 @@ while (true) {
 
   console.log(secret.join(' ').toLowerCase())
 
-  // Caractère déjà taper, caractère sup à 1, erreur: perte de point + affichage du pendu
+  // Caractère déjà tapé, caractère sup à 1, erreur: perte de point + affichage du pendu
 
   if (secret.includes(userInput)) {
     console.log(chalk.green('You already find this character'))
@@ -49,4 +51,11 @@ while (true) {
     console.log(chalk.red('Sorry you loose, you will do better next time'))
     break
   }
+}
+} catch(e) {
+  console.error('An error somewhere') // write to stderr instead of stdout
+  console.error(`name: ${e.name}`) // nom de l'erreur
+  console.error(`code: ${e.code}`) // code de l'erreur
+  console.error(`message: ${e.message}`) // message de l'erreur
+  console.error(`stack: ${e.stack}`)
 }
